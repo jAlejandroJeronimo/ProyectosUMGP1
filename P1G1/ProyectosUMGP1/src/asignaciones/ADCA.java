@@ -245,8 +245,8 @@ public class ADCA extends javax.swing.JInternalFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         //Codigo que permite consultar registros en la base de datos
         try{
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3307/nominabancos", "root", "");
-            PreparedStatement pst = cn.prepareStatement("select * from bancobantrab where ID = ?");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3307/siu", "root", "");
+            PreparedStatement pst = cn.prepareStatement("select * from asignacioncursosalumnos where ID = ?");
 /*-----------------------------------------------------------------------------------------------------------------------*/
 
             //pst.setString(1, txt_buscar.getText().trim());//busca lo que hay en el txt en la base de datos

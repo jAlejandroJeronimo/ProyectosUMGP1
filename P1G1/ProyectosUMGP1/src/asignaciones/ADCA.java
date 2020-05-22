@@ -1,6 +1,5 @@
 package asignaciones;
 
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -56,6 +55,7 @@ public class ADCA extends javax.swing.JInternalFrame {
         jLabel10 = new javax.swing.JLabel();
         nota_asig = new javax.swing.JTextField();
         Label_status = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 255, 204));
         setClosable(true);
@@ -101,7 +101,7 @@ public class ADCA extends javax.swing.JInternalFrame {
 
         jButton2.setBackground(new java.awt.Color(255, 153, 0));
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton2.setText("BUSCAR ASIGNACION");
+        jButton2.setText("BUSCAR ASIGNACIÓN");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -113,6 +113,15 @@ public class ADCA extends javax.swing.JInternalFrame {
 
         Label_status.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         Label_status.setText("...");
+
+        jButton3.setBackground(new java.awt.Color(255, 153, 0));
+        jButton3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton3.setText("NUEVA ASIGNACIÓN");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -150,22 +159,25 @@ public class ADCA extends javax.swing.JInternalFrame {
                         .addGap(14, 14, 14)
                         .addComponent(car_alumno, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(70, 70, 70)
-                        .addComponent(jLabel5)
-                        .addGap(16, 16, 16)
-                        .addComponent(cod_seccion, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(108, 108, 108)
-                        .addComponent(jLabel10)
-                        .addGap(39, 39, 39)
-                        .addComponent(nota_asig, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(150, 150, 150)
-                        .addComponent(jButton1)
-                        .addGap(35, 35, 35)
-                        .addComponent(jButton2))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(90, 90, 90)
-                        .addComponent(Label_status)))
+                        .addComponent(Label_status))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jButton1)
+                                .addGap(35, 35, 35)
+                                .addComponent(jButton2)
+                                .addGap(27, 27, 27)
+                                .addComponent(jButton3))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addGap(16, 16, 16)
+                                .addComponent(cod_seccion, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(108, 108, 108)
+                                .addComponent(jLabel10)
+                                .addGap(39, 39, 39)
+                                .addComponent(nota_asig, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(34, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -197,11 +209,13 @@ public class ADCA extends javax.swing.JInternalFrame {
                     .addComponent(cod_seccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10)
                     .addComponent(nota_asig, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
+                .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addGap(25, 25, 25)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton2)
+                        .addComponent(jButton3)))
+                .addGap(18, 18, 18)
                 .addComponent(Label_status)
                 .addContainerGap(72, Short.MAX_VALUE))
         );
@@ -213,7 +227,6 @@ public class ADCA extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //Codigo que permite insertar registros en al base de datos
-        //Diseño del JFrame trabajado por ambos
         try{
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3307/siu", "root", "");
             PreparedStatement pst = cn.prepareStatement("insert into asignacioncursosalumnos values(?,?,?,?,?,?,?,?)");
@@ -236,17 +249,21 @@ public class ADCA extends javax.swing.JInternalFrame {
             cod_curso.setText("");
             car_alumno.setText("");
             nota_asig.setText("");
-            Label_status.setText("Registro exitoso.");
+            Label_status.setText("Asignación registrada con éxito!");
         }catch (Exception e){
             e.printStackTrace();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        //Codigo que permite consultar registros en la base de datos
+        //Codigo que permite consultar las asignaciones en la base de datos
         try{
+            
+    //**********PENDIENTE CONSULTAR CON EL INGE COMO SE BUSCA UNA ASIGNACIÓN O SI ES NECESARIO BURCARLA**********//
+            
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3307/siu", "root", "");
             PreparedStatement pst = cn.prepareStatement("select * from asignacioncursosalumnos where ID = ?");
+            
 /*-----------------------------------------------------------------------------------------------------------------------*/
 
             //pst.setString(1, txt_buscar.getText().trim());//busca lo que hay en el txt en la base de datos
@@ -264,14 +281,26 @@ public class ADCA extends javax.swing.JInternalFrame {
                 car_alumno.setText(rs.getString("carnet_alumno"));
                 nota_asig.setText(rs.getString("nota_asignacioncursoalumnos"));
             } else {
-                //si el campo no existiera que aparecera un mensaje en el LABEL
-                JOptionPane.showMessageDialog(null, "Alumno no registrado.");
+                JOptionPane.showMessageDialog(null, "***Asiganación no registrada***");
             }
 
         }catch (Exception e){
 
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+           // Permite borrar todos los campos del diseño para realizar un nuevo ingreso
+            cod_carrera.setText("");
+            cod_sede.setText("");
+            cod_jornada.setText("");
+            cod_seccion.setText("");
+            cod_aula.setText("");
+            cod_curso.setText("");
+            car_alumno.setText("");
+            nota_asig.setText("");
+            Label_status.setText("");
+    }//GEN-LAST:event_jButton3ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -285,6 +314,7 @@ public class ADCA extends javax.swing.JInternalFrame {
     private javax.swing.JTextField cod_sede;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;

@@ -355,7 +355,6 @@ public class Mantenimientos extends javax.swing.JFrame {
     }//GEN-LAST:event_EliminarMaestro1ActionPerformed
 
     private void AsignacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AsignacionActionPerformed
-        // 
         VentanaAsignacion1 = new ADCA();
         jDesktopPane1.add(VentanaAsignacion1);
     }//GEN-LAST:event_AsignacionActionPerformed

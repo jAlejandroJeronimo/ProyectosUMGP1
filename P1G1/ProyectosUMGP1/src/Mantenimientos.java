@@ -1,11 +1,12 @@
-
-
-import asignaciones.ADCA;
-
 /**
  *
  * @author Tobar Arèvalo
  */
+/********************************************************************************************/
+//Quitar los comentarios
+//import asignaciones.ADCA;
+/********************************************************************************************/
+
 public class Mantenimientos extends javax.swing.JFrame {
 
 
@@ -18,10 +19,12 @@ public class Mantenimientos extends javax.swing.JFrame {
     private RegistroAula ventanaaula;
     private RegistroJornadas ventanajor;
     private RegistroSecciones ventanasec;
-    
+
+/********************************************************************************************/
+    //Quitar los comentarios
     //Visibilidad para el jInternalFrame de asignacion de cursos a alumnos por Alejandro
-    private ADCA VentanaAsignacion1;
-    
+    //private ADCA VentanaAsignacion1;
+/********************************************************************************************/
    
 
     public Mantenimientos() {
@@ -355,8 +358,8 @@ public class Mantenimientos extends javax.swing.JFrame {
     }//GEN-LAST:event_EliminarMaestro1ActionPerformed
 
     private void AsignacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AsignacionActionPerformed
-        VentanaAsignacion1 = new ADCA();
-        jDesktopPane1.add(VentanaAsignacion1);
+        //VentanaAsignacion1 = new ADCA();
+        //jDesktopPane1.add(VentanaAsignacion1);
     }//GEN-LAST:event_AsignacionActionPerformed
 
     private void RegistrarSedeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarSedeActionPerformed

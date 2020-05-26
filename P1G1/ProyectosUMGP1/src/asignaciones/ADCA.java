@@ -1,17 +1,10 @@
-package asignaciones;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import javax.swing.JOptionPane;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+import java.sql.*;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Alejandro
@@ -57,12 +50,10 @@ public class ADCA extends javax.swing.JInternalFrame {
         Label_status = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(204, 255, 204));
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setVisible(true);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 204));
 
@@ -179,7 +170,7 @@ public class ADCA extends javax.swing.JInternalFrame {
                                         .addGap(39, 39, 39)
                                         .addComponent(nota_asig, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(155, 155, 155)
+                        .addGap(107, 107, 107)
                         .addComponent(Label_status)))
                 .addContainerGap(34, Short.MAX_VALUE))
         );
@@ -220,12 +211,21 @@ public class ADCA extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel9)
                     .addComponent(car_alumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(11, 11, 11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addComponent(Label_status)
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addGap(49, 49, 49))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 360));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -235,17 +235,17 @@ public class ADCA extends javax.swing.JInternalFrame {
         try{
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3307/siu", "root", "");
             PreparedStatement pst = cn.prepareStatement("insert into asignacioncursosalumnos values(?,?,?,?,?,?,?,?)");
-/*-----------------------------------------------------------------------------------------------------------------------*/
+            /*-----------------------------------------------------------------------------------------------------------------------*/
             pst.setString(1, cod_carrera.getText().trim());
             pst.setString(2, cod_sede.getText().trim());
             pst.setString(3, cod_jornada.getText().trim());
             pst.setString(4, cod_seccion.getText().trim());
-            pst.setString(5, cod_aula.getText().trim()); 
-            pst.setString(6, cod_curso.getText().trim()); 
-            pst.setString(7, car_alumno.getText().trim()); 
-            pst.setString(8, nota_asig.getText().trim()); 
+            pst.setString(5, cod_aula.getText().trim());
+            pst.setString(6, cod_curso.getText().trim());
+            pst.setString(7, car_alumno.getText().trim());
+            pst.setString(8, nota_asig.getText().trim());
             pst.executeUpdate();
-         //Borra lo que hay en campos
+            //Borra lo que hay en campos
             cod_carrera.setText("");
             cod_sede.setText("");
             cod_jornada.setText("");
@@ -263,11 +263,11 @@ public class ADCA extends javax.swing.JInternalFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         //Codigo que permite consultar las asignaciones en la base de datos
         try{
-            
+
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3307/siu", "root", "");
             PreparedStatement pst = cn.prepareStatement("select * from asignacioncursosalumnos where ID = ?");
-            
-/*-----------------------------------------------------------------------------------------------------------------------*/
+
+            /*-----------------------------------------------------------------------------------------------------------------------*/
 
             pst.setString(1, car_alumno.getText().trim());//busca lo que hay en el txt en la base de datos
 
@@ -292,16 +292,16 @@ public class ADCA extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-           // Permite borrar todos los campos del diseño para realizar un nuevo ingreso
-            cod_carrera.setText("");
-            cod_sede.setText("");
-            cod_jornada.setText("");
-            cod_seccion.setText("");
-            cod_aula.setText("");
-            cod_curso.setText("");
-            car_alumno.setText("");
-            nota_asig.setText("");
-            Label_status.setText("");
+        // Permite borrar todos los campos del diseño para realizar un nuevo ingreso
+        cod_carrera.setText("");
+        cod_sede.setText("");
+        cod_jornada.setText("");
+        cod_seccion.setText("");
+        cod_aula.setText("");
+        cod_curso.setText("");
+        car_alumno.setText("");
+        nota_asig.setText("");
+        Label_status.setText("");
     }//GEN-LAST:event_jButton3ActionPerformed
 
 

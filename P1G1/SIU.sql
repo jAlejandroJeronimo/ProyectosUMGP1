@@ -1,4 +1,4 @@
-/*DROP DATABASE siu;*/
+DROP DATABASE siu;
 CREATE DATABASE siu;
 USE siu;
 -- -----------------------------------------------------
